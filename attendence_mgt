@@ -1,0 +1,40 @@
+employees = [
+    (101, "Alice Johnson", "HR"),
+    (102, "Bob Smith", "IT"),
+    (103, "Charlie Brown", "Finance"),
+    (104, "David White", "IT"),
+    (105, "Eve Black", "Marketing")
+]
+
+attendance_records = [
+    (101, "2025-03-01", "Present"),
+    (102, "2025-03-01", "Absent"),
+    (103, "2025-03-01", "Present"),
+    (104, "2025-03-01", "Present"),
+    (105, "2025-03-01", "Absent"),
+]
+
+
+def mark_attendance(emp_id, date, status):
+    attendance_records.append((emp_id, date, status))
+    print(f"Attendance marked for Employee {emp_id}: {status}")
+
+
+def search_attendance(emp_id):
+    records = [record for record in attendance_records if record[0] == emp_id]
+    
+    if records:
+        print(f"Attendance records for EmpID {emp_id}:")
+        for rec in records:
+            print(f"Date: {rec[1]}, Status: {rec[2]}")
+    else:
+        print("No attendance records found for this employee.")
+
+
+mark_attendance(101, "2020-07-06", "Present")
+mark_attendance(102, "2020-07-06", "Absent")
+mark_attendance(103, "2020-07-06", "Present")
+mark_attendance(104, "2020-07-06", "Present")  
+
+print("\nSearching for Employee ID 101:")
+search_attendance(101)
